@@ -2,23 +2,40 @@
   <div>
     <div class="row">
       <div v-for="item in getData" :key="item.Id" class="col-3">
-      <div class="card border-primary mb-3" style="max-width: 18rem;">
-        <div class="card-header">{{item[header]}}</div>
-        <div class="card-body text-primary">
-          <h5 class="card-title">{{item[bodyName]}}</h5>
-          <p v-for="bod in body" :key="bod" class="card-text">{{item[bod]}}</p>
+        <div
+          class="card mb-3 "
+          :class="setBorder + ' ' + setBackground"
+          style="max-width: 18rem;"
+        >
+          <div class="card-header d-flex justify-content-left">
+            {{ item[header] }}
+          </div>
+          <div class="card-body " :class="setTextColor">
+            <h5 class="card-title  d-flex justify-content-left">
+              {{ item[bodyName] }}
+            </h5>
+            <div class="row">
+              <p
+                v-for="bod in body"
+                :key="bod"
+                class="card-text"
+                :class="'card-text col-' + setColumns"
+              >
+                {{ item[bod] }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    
+
     <div class="row d-flex justify-content-center">
       <b-pagination
-      v-model="currentPage"
-      :total-rows="paginationInfo.totalItems"
-      :per-page="paginationInfo.totalPages"
-      aria-controls="my-table"
-    ></b-pagination>
+        v-model="currentPage"
+        :total-rows="paginationInfo.totalItems"
+        :per-page="paginationInfo.totalPages"
+        aria-controls="my-table"
+      ></b-pagination>
     </div>
   </div>
 </template>
@@ -33,7 +50,26 @@ export default {
     header: String,
     bodyName: String,
     body: Array,
-    footer: String
+    footer: String,
+    numberColumnsPerRow: {
+      type: Number,
+      default: 2
+    },
+    borderColorProperty: String,
+    borderColor: {
+      type: String,
+      default: 'Dark'
+    },
+    backgroundColorProperty: String,
+    backgroundColor: {
+      type: String,
+      default: 'Default'
+    },
+    textColorProperty: String,
+    textColor: {
+      type: String,
+      default: ' '
+    }
   },
   data() {
     return {
@@ -47,24 +83,47 @@ export default {
   methods: {
     paginate() {
       if (this.items.length) {
-        const paginationInfo = Utils.paginate(this.items.length, this.currentPage);
+        const paginationInfo = Utils.paginate(
+          this.items.length,
+          this.currentPage
+        );
 
         console.log(paginationInfo);
         this.paginationInfo = paginationInfo;
-        
-
       }
     }
-  },computed:{
-    getData(){
-      return this.items.slice(this.paginationInfo.startIndex,this.paginationInfo.endIndex +1);
+  },
+  computed: {
+    getData() {
+      return this.items.slice(
+        this.paginationInfo.startIndex,
+        this.paginationInfo.endIndex + 1
+      );
+    },
+    setColumns() {
+      return 12 / this.numberColumnsPerRow;
+    },
+    setBorder() {
+      return this.textColorProperty
+        ? this.textColorProperty
+        : this.textColor;
+    },
+    setBackground() {
+      return this.backgroundColorProperty
+        ? this.backgroundColorProperty
+        : this.backgroundColor;
+    },
+    setTextColor(){
+      return this.backgroundColorProperty
+        ? this.backgroundColorProperty
+        : this.backgroundColor;
     }
   },
-  watch:{
-      currentPage: function () {
+  watch: {
+    currentPage: function() {
       this.paginate();
     }
-    }
+  }
 };
 </script>
 

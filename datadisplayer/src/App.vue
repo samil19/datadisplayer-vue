@@ -7,6 +7,7 @@
       footer="Grupo"
       bodyName="Responsable"
       :body="names"
+      :numberColumnsPerRow=2
     />
   </div>
 </template>
