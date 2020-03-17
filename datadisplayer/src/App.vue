@@ -1,24 +1,25 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <card
+    <displayer
       :items="elements"
-      header="NombreSolicitud"
-      footer="Grupo"
-      bodyName="Responsable"
-      :body="names"
+      :header="headerObject"
+      :footer="footerObject"
+      :bodyName="bodyNameObject"
+      :body="attributesNames"
       :numberColumnsPerRow=2
+      :quantityPerPage=10
     />
   </div>
 </template>
 
 <script>
-import card from "./components/card.vue";
+import displayer from "./components/displayer.vue";
 
 export default {
   name: "App",
   components: {
-    card
+    displayer
   },
   data: () => {
     return {
@@ -1024,7 +1025,10 @@ export default {
           Tel: "(016977) 2802"
         }
       ],
-      names: ["FechaInicio", "FechaFin", "Zona", "Tel"]
+      attributesNames: [{atributo: "FechaInicio", nombre: "Inicio"}, {atributo: "FechaFin", nombre: "Fin"}, {atributo: "Zona", nombre: "Zona"}, {atributo: "Tel", nombre: "Telefono"}],
+      headerObject:{atributo:"NombreSolicitud", nombre: "Nombre de la Solicitud"},
+      footerObject:{atributo:"Grupo", nombre: "Grupo"},
+      bodyNameObject:{atributo:"Responsable", nombre: "Responsable"}
     };
   }
 };
