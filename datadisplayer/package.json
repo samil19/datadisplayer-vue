@@ -1,6 +1,6 @@
 {
-  "name": "datadisplayer",
-  "version": "0.1.0",
+  "name": "datadisplayer-vue",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -23,7 +23,7 @@
     "eslint-plugin-vue": "^6.1.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "keywords":[
+  "keywords": [
     "vue",
     "data",
     "displayer",
