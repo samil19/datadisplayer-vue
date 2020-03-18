@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "release": "np"
   },
   "dependencies": {
     "bootstrap-vue": "^2.7.0",
     "core-js": "^3.6.4",
+    "np": "^6.2.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -21,6 +23,12 @@
     "eslint-plugin-vue": "^6.1.2",
     "vue-template-compiler": "^2.6.11"
   },
+  "keywords":[
+    "vue",
+    "data",
+    "displayer",
+    "datadisplayer"
+  ],
   "eslintConfig": {
     "root": true,
     "env": {
