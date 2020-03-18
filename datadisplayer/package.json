@@ -10,8 +10,7 @@
   },
   "np": {
     "anyBranch": true
-    
-},
+  },
   "dependencies": {
     "bootstrap-vue": "^2.7.0",
     "core-js": "^3.6.4",
