@@ -1,6 +1,6 @@
 {
   "name": "datadisplayer-vue",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A component to paginated and display data client-side",
   "files": [
     "dist/datadisplayer-vue.umd.min.js",
