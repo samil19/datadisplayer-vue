@@ -1,6 +1,6 @@
 {
   "name": "datadisplayer-vue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A component to paginated and display data client-side",
   "files": [
     "dist/Img",

@@ -1,5 +1,5 @@
 <template>
-  <div class="m-4" v-if="items">
+  <div id="displayer" class="m-4" v-if="items">
     <div class="row">
       <div class="col-12 d-flex justify-content-end m-2">
         <button class="btn btn-secondary" v-on:click="cards = !cards">
