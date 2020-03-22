@@ -1,19 +1,20 @@
 {
   "name": "datadisplayer-vue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A component to paginated and display data client-side",
   "files": [
     "dist/Img",
     "dist/datadisplayer-vue.umd.min.js",
     "dist/datadisplayer-vue.umd.min.js.map"
-   ],
+  ],
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --production",
     "lint": "vue-cli-service lint",
     "build-bundle": "vue-cli-service build --target lib --name datadisplayer-vue ./src/index.js",
-    "release": "np"},
+    "release": "np"
+  },
   "dependencies": {
     "bootstrap-vue": "^2.7.0",
     "core-js": "^3.6.4",
