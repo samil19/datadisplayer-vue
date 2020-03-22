@@ -73,7 +73,7 @@
 import * as Utils from "@/Utils.js";
 
 export default {
-  name: "datadisplayer-vue",
+  name: "datadisplayervue",
   props: {
     items: Array,
     header: String,

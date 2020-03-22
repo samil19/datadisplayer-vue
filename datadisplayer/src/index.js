@@ -1,4 +1,4 @@
-import datadisplayervue from "./datadisplayer-vue.vue";
+import datadisplayervue from "./App.vue";
 
 export default {
  install(Vue, options) {
