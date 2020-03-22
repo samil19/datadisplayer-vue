@@ -1,7 +1,6 @@
 <template>
   <div>
-    Testing!
-    <!-- <div class="m-4" v-if="items.length > 0">
+    <div class="m-4" v-if="items.length > 0">
       <div class="row">
         <div class="col-12 d-flex justify-content-end m-2">
           <button class="btn btn-secondary" v-on:click="cards = !cards">
@@ -68,7 +67,7 @@
           aria-controls="my-table"
         ></b-pagination>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
