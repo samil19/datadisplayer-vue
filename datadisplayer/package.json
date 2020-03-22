@@ -1,21 +1,19 @@
 {
   "name": "datadisplayer-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A component to paginated and display data client-side",
   "files": [
-    "dist/datadisplayer-vue.umd.min.js",
-    "dist/datadisplayer-vue.umd.min.js.map"
+    "dist/*",
+    "src/*",
+    "attributes.json",
+    "tags.json"
   ],
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --production",
     "lint": "vue-cli-service lint",
-    "release": "np",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/datadisplayer-vue.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/datadisplayer-vue.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/datadisplayer-vue.min.js"
-  },
+    "release": "np"},
   "dependencies": {
     "bootstrap-vue": "^2.7.0",
     "core-js": "^3.6.4",
@@ -36,7 +34,6 @@
     "displayer",
     "datadisplayer"
   ],
-  "main": "./dist/datadisplayer-vue.umd.min.js",
   "license": "MIT",
   "bugs": "https://github.com/samil19/datadisplayer-vue/issues/new",
   "repository": {
