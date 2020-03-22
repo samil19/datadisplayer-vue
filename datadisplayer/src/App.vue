@@ -1,71 +1,74 @@
 <template>
-  <div id="displayer" class="m-4" v-if="items">
-    <div class="row">
-      <div class="col-12 d-flex justify-content-end m-2">
-        <button class="btn btn-secondary" v-on:click="cards = !cards">
-          <i>
-            <img :src="setSvg" width="18" height="18" />
-          </i>
-        </button>
-      </div>
-    </div>
-    <div id="cards" v-if="cards" class="row">
-      <div v-for="item in getData" :key="item.Id" class="col-3">
-        <div class="card mb-3" :class="setBorder + ' ' + setBackground" style="max-width: 18rem;">
-          <div
-            v-if="header"
-            class="card-header d-flex justify-content-left"
-          >{{ item[header.atributo] }}</div>
-          <div class="card-body" :class="setTextColor">
-            <label v-if="showRealNameInCards && bodyName" class="d-flex justify-content-left">
-              <b>{{bodyName.nombre}}</b>
-            </label>
-            <h5
-              v-if="bodyName"
-              class="card-title d-flex justify-content-left"
-            >{{ item[bodyName.atributo] }}</h5>
-            <div class="row">
-              <div v-for="bod in body" :key="bod.atributo" :class="'col-' + setColumns">
-                <label v-if="showRealNameInCards" class>
-                  <b>{{bod.nombre}}</b>
-                </label>
-                <p class="card-text">{{ item[bod.atributo] }}</p>
-              </div>
-            </div>
-          </div>
-          <div v-if="footer" class="card-footer text-muted">{{item[footer.atributo]}}</div>
+  <div>
+    Testing!
+    <!-- <div class="m-4" v-if="items.length > 0">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-end m-2">
+          <button class="btn btn-secondary" v-on:click="cards = !cards">
+            <i>
+              <img :src="setSvg" width="18" height="18" />
+            </i>
+          </button>
         </div>
       </div>
-    </div>
-    <div v-if="!cards" id="table" class="row">
-      <table class="table">
-        <thead>
-          <tr>
-            <th v-if="header" scope="col">{{header.nombre}}</th>
-            <th v-if="bodyName" scope="col">{{bodyName.nombre}}</th>
-            <th scope="col" v-for="bod in body" :key="bod.atributo">{{bod.nombre}}</th>
-            <th v-if="footer" scope="col">{{footer.nombre}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="item in getData" :key="item.Id">
-            <th v-if="header" scope="row">{{ item[header.atributo] }}</th>
-            <td v-if="bodyName">{{ item[bodyName.atributo] }}</td>
-            <td v-for="bod in body" :key="bod.atributo">{{item[bod.atributo]}}</td>
-            <td v-if="footer">{{ item[footer.atributo] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div id="cards" v-if="cards" class="row">
+        <div v-for="item in getData" :key="item.Id" class="col-3">
+          <div class="card mb-3" :class="setBorder + ' ' + setBackground" style="max-width: 18rem;">
+            <div
+              v-if="header"
+              class="card-header d-flex justify-content-left"
+            >{{ item[header.atributo] }}</div>
+            <div class="card-body" :class="setTextColor">
+              <label v-if="showRealNameInCards && bodyName" class="d-flex justify-content-left">
+                <b>{{bodyName.nombre}}</b>
+              </label>
+              <h5
+                v-if="bodyName"
+                class="card-title d-flex justify-content-left"
+              >{{ item[bodyName.atributo] }}</h5>
+              <div class="row">
+                <div v-for="bod in body" :key="bod.atributo" :class="'col-' + setColumns">
+                  <label v-if="showRealNameInCards" class>
+                    <b>{{bod.nombre}}</b>
+                  </label>
+                  <p class="card-text">{{ item[bod.atributo] }}</p>
+                </div>
+              </div>
+            </div>
+            <div v-if="footer" class="card-footer text-muted">{{item[footer.atributo]}}</div>
+          </div>
+        </div>
+      </div>
+      <div v-if="!cards" id="table" class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th v-if="header" scope="col">{{header.nombre}}</th>
+              <th v-if="bodyName" scope="col">{{bodyName.nombre}}</th>
+              <th scope="col" v-for="bod in body" :key="bod.atributo">{{bod.nombre}}</th>
+              <th v-if="footer" scope="col">{{footer.nombre}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in getData" :key="item.Id">
+              <th v-if="header" scope="row">{{ item[header.atributo] }}</th>
+              <td v-if="bodyName">{{ item[bodyName.atributo] }}</td>
+              <td v-for="bod in body" :key="bod.atributo">{{item[bod.atributo]}}</td>
+              <td v-if="footer">{{ item[footer.atributo] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <div class="row d-flex justify-content-center">
-      <b-pagination
-        v-model="currentPage"
-        :total-rows="paginationInfo.totalItems"
-        :per-page="paginationInfo.pageSize"
-        aria-controls="my-table"
-      ></b-pagination>
-    </div>
+      <div class="row d-flex justify-content-center">
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="paginationInfo.totalItems"
+          :per-page="paginationInfo.pageSize"
+          aria-controls="my-table"
+        ></b-pagination>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -75,7 +78,12 @@ import * as Utils from "@/Utils.js";
 export default {
   name: "datadisplayervue",
   props: {
-    items: Array,
+    items: {
+      type: Array,
+      default: function() {
+        return [];
+      }
+    },
     header: String,
     bodyName: String,
     body: Array,
@@ -131,7 +139,6 @@ export default {
           this.paginationInfo.pageSize
         );
 
-        console.log(paginationInfo);
         this.paginationInfo = paginationInfo;
       }
     }
